@@ -9,6 +9,7 @@ function Calculator({ workouts, allowSound }) {
 
   const [duration, setDuration] = useState(0);
 
+  //playsound ufnc
   // const playSound = useCallback(
   //   function () {
   //     if (!allowSound) return;
@@ -34,12 +35,15 @@ function Calculator({ workouts, allowSound }) {
       };
       playSound();
     },
-    [duration,allowSound]
+    [duration, allowSound]
   );
 
-  useEffect(function(){
-    document.title = `Your ${number} excerise workout`;
-  },[number, duration, sets])
+  useEffect(
+    function () {
+      document.title = `Your ${number} excerise workout`;
+    },
+    [number, duration, sets]
+  );
 
   // const duration = (number * sets * speed) / 60 + (sets - 1) * durationBreak;
   const mins = Math.floor(duration);
